@@ -4,7 +4,7 @@
       {{ title }}
     </h1>
     <p v-if="createdTime" class="opacity-50 !-mt-2">
-      {{ `Created at ${formatDate(createdTime)}${updatedTime ? formatDate(updatedTime) : ''}` }}
+      {{ `Created at ${formatDate(createdTime)}${updatedTime ? ', last updated at ' + formatDate(updatedTime) : ''}` }}
     </p>
   </div>
   <article ref="content">
