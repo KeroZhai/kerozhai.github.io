@@ -28,13 +28,14 @@ const props = defineProps({
   },
 })
 
+const route = useRoute()
 const { title } = props.frontmatter
-const { createdTime, updatedTime } = useRoute().meta
+const { createdTime, updatedTime } = route.meta
 
 // See vite.config.ts
 // 由于配置 headEnabled 不生效，故手动设置
 useHead({
   ...props.frontmatter,
-  title: `${title} - Blog - Keroz`,
+  title: `${title}${route.path === '/' ? '' : ' - Keroz'}`,
 })
 </script>

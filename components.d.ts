@@ -6,8 +6,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppLink: typeof import('./src/components/AppLink.vue')['default']
     Layout: typeof import('./src/layout/Layout.vue')['default']
+    MarkdownWrapper: typeof import('./src/components/MarkdownWrapper.vue')['default']
     NavBar: typeof import('./src/layout/NavBar.vue')['default']
-    Post: typeof import('./src/components/Post.vue')['default']
     RiArticleLine: typeof import('~icons/ri/article-line')['default']
     RiMoonLine: typeof import('~icons/ri/moon-line')['default']
     RiSunLine: typeof import('~icons/ri/sun-line')['default']

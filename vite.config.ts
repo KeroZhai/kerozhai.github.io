@@ -82,7 +82,6 @@ const config: UserConfig = {
     Pages({
       extensions: ['vue', 'md'],
       pagesDir: 'pages',
-      // 末尾有 (draft) 的是草稿
       exclude: ['**/drafts/*'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
@@ -107,7 +106,7 @@ const config: UserConfig = {
     }),
 
     Markdown({
-      wrapperComponent: 'post',
+      wrapperComponent: 'markdown-wrapper',
       wrapperClasses: 'prose m-auto', // TODO 未生效，待定位
       headEnabled: true, // TODO 未生效，待定位
       markdownItOptions: {
