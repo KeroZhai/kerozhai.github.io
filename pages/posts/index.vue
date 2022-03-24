@@ -13,12 +13,12 @@ const posts = router.getRoutes()
   .filter(({ path }) => path.startsWith('/posts') && path !== '/posts')
   .sort((a, b) => (a.meta.updatedTimestamp - b.meta.updatedTimestamp))
   .map((route) => {
-    const { title } = route.meta.frontmatter
+    const { title, createdTime } = route.meta.frontmatter
 
     return {
       title: title || route.name,
       link: route.path,
-      updatedTime: route.meta.updatedTime,
+      createdTime,
     }
   })
 </script>
