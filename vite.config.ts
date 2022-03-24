@@ -92,15 +92,6 @@ const config: UserConfig = {
           frontmatter: data,
         })
 
-        if (route.path.startsWith('/posts') && route.path !== '/posts') {
-          const { birthtime: createdTime, mtime: updatedTime } = fs.statSync(path)
-
-          route.meta.createdTime = createdTime
-          route.meta.createdTimestamp = createdTime.getTime()
-          route.meta.updatedTime = updatedTime
-          route.meta.updatedTimestamp = updatedTime.getTime()
-        }
-
         return route
       },
     }),

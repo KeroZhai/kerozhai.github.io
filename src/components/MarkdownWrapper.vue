@@ -4,7 +4,7 @@
       {{ title }}
     </h1>
     <p v-if="createdTime" class="opacity-50 !-mt-2">
-      Created at {{ formatDate(createdTime) }}, last updated at {{ formatDate(updatedTime) }}
+      {{ `Created at ${formatDate(createdTime)}${updatedTime ? formatDate(updatedTime) : ''}` }}
     </p>
   </div>
   <article ref="content">
@@ -29,8 +29,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
-const { title } = props.frontmatter
-const { createdTime, updatedTime } = route.meta
+const { title, createdTime, updatedTime } = props.frontmatter
 
 // See vite.config.ts
 // 由于配置 headEnabled 不生效，故手动设置
