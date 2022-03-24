@@ -1,0 +1,52 @@
+{
+  "name": "personal-site",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.1.2",
+    "@vueuse/head": "^0.7.5",
+    "dayjs": "^1.11.0",
+    "nprogress": "^0.2.0",
+    "prism-theme-vars": "^0.2.2",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.18.9",
+    "@iconify/json": "^2.1.19",
+    "@types/fs-extra": "^9.0.13",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-link-attributes": "^3.0.1",
+    "@types/node": "^17.0.22",
+    "@types/nprogress": "^0.2.0",
+    "@unocss/preset-icons": "^0.29.5",
+    "@unocss/reset": "^0.29.5",
+    "@vitejs/plugin-vue": "^2.2.4",
+    "eslint": "^8.11.0",
+    "fs-extra": "^10.0.1",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^12.3.2",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-link-attributes": "^4.0.0",
+    "markdown-it-prism": "^2.2.3",
+    "markdown-it-shiki": "^0.4.0",
+    "markdown-it-table-of-contents": "^0.6.0",
+    "prismjs": "^1.27.0",
+    "typescript": "^4.6.2",
+    "unocss": "^0.29.5",
+    "unplugin-auto-import": "^0.6.6",
+    "unplugin-icons": "^0.14.0",
+    "unplugin-vue-components": "^0.18.3",
+    "vite": "^2.8.6",
+    "vite-plugin-md": "^0.12.0",
+    "vite-plugin-pages": "^0.22.0"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  }
+}
