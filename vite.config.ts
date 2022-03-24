@@ -87,18 +87,20 @@ const config: UserConfig = {
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
         const md = fs.readFileSync(path, 'utf-8')
-        const { birthtime: createdTime, mtime: updatedTime } = fs.statSync(path)
-        const createdTimestamp = createdTime.getTime()
-        const updatedTimestamp = updatedTime.getTime()
         const { data } = matter(md)
 
         route.meta = Object.assign(route.meta || {}, {
           frontmatter: data,
-          createdTime,
-          createdTimestamp,
-          updatedTime,
-          updatedTimestamp,
         })
+
+        if (route.path.startsWith('/posts') && route.path !== '/posts') {
+          const { birthtime: createdTime, mtime: updatedTime } = fs.statSync(path)
+
+          route.meta.createdTime = createdTime
+          route.meta.createdTimestamp = createdTime.getTime()
+          route.meta.updatedTime = updatedTime
+          route.meta.updatedTimestamp = updatedTime.getTime()
+        }
 
         return route
       },
