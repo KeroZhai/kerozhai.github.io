@@ -13,6 +13,11 @@
     <title>Keroz</title>
     <script>
       (function() {
+        const redirect = sessionStorage.getItem('redirect')
+        if (redirect && redirect !== location.href) {
+          sessionStorage.removeItem('redirect')
+          history.replaceState(null, null, redirect)
+        }
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
         if (setting === 'dark' || (prefersDark && setting !== 'light')) document.documentElement.classList.toggle('dark', true)
