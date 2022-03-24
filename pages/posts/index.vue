@@ -39,7 +39,7 @@ const posts = router.getRoutes()
           {{ post.title }}
         </div>
         <div class="opacity-50 text-sm -mt-1">
-          {{ formatDate(post.updatedTime) }}
+          {{ formatDate(post.createdTime) }}
         </div>
       </app-link>
     </template>
