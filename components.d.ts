@@ -8,9 +8,11 @@ declare module 'vue' {
     Layout: typeof import('./src/layout/Layout.vue')['default']
     MarkdownWrapper: typeof import('./src/components/MarkdownWrapper.vue')['default']
     NavBar: typeof import('./src/layout/NavBar.vue')['default']
+    'Ri:closeLine': typeof import('~icons/ri/close-line')['default']
     RiArticleLine: typeof import('~icons/ri/article-line')['default']
     RiMoonLine: typeof import('~icons/ri/moon-line')['default']
     RiSunLine: typeof import('~icons/ri/sun-line')['default']
+    TagLink: typeof import('./src/components/TagLink.vue')['default']
     ToggleTheme: typeof import('./src/components/ToggleTheme.vue')['default']
   }
 }

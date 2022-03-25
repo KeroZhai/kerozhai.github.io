@@ -3,6 +3,9 @@
     <h1>
       {{ title }}
     </h1>
+    <div v-if="tags && tags.length > 0" class="text-sm">
+      <tag-link v-for="tag in tags" :key="tag" :name="tag" />
+    </div>
     <p v-if="createdTime" class="opacity-50 !-mt-2">
       {{ `Created at ${formatDate(createdTime)}${updatedTime ? ', last updated at ' + formatDate(updatedTime) : ''}` }}
     </p>
@@ -20,6 +23,7 @@
 import { useRoute } from 'vue-router'
 import { useHead } from '@vueuse/head'
 import { formatDate } from '@/utils'
+import TagLink from '@/components/TagLink.vue'
 
 const props = defineProps({
   frontmatter: {
@@ -29,7 +33,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
-const { title, createdTime, updatedTime } = props.frontmatter
+const { title, tags, createdTime, updatedTime } = props.frontmatter
 
 // See vite.config.ts
 // 由于配置 headEnabled 不生效，故手动设置
