@@ -139,6 +139,11 @@ const config: UserConfig = {
       defaultStyle: 'vertical-align: sub;',
     }),
   ],
+
+  ssgOptions: {
+    formatting: 'minify',
+    format: 'cjs',
+  },
 }
 
 export default config
