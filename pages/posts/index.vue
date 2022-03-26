@@ -46,7 +46,7 @@ watch(tagQuery, filterPostsByTag)
 <template>
   <div class="prose m-auto">
     <h1 v-if="tagQuery">
-      Tag: {{ tagQuery }} <sup><ri:close-line class="inline cursor-pointer opacity-50" @click="$router.push('/posts')" /></sup>
+      Tag: {{ tagQuery }} <sup><ri:close-line class="inline cursor-pointer opacity-50 hover:opacity-100" @click="$router.push('/posts')" /></sup>
     </h1>
     <template v-if="posts.length === 0">
       Nothing here yet!
