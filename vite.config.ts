@@ -82,7 +82,8 @@ const config: UserConfig = {
     Pages({
       extensions: ['vue', 'md'],
       pagesDir: 'pages',
-      exclude: process.env.NODE_ENV === 'development' ? undefined : ['**/drafts/*'],
+      // NODE_ENV is undefined at start
+      exclude: (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? undefined : ['**/drafts/*'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
         const md = fs.readFileSync(path, 'utf-8')
