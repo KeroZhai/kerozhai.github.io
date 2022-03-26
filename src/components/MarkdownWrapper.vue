@@ -3,12 +3,12 @@
     <h1>
       {{ title }}
     </h1>
-    <div v-if="tags && tags.length > 0" class="text-sm">
-      <tag-link v-for="tag in tags" :key="tag" :name="tag" />
-    </div>
     <p v-if="publishedTime" class="opacity-50 !-mt-2">
       {{ `Published at ${formatDate(publishedTime)}${updatedTime ? ', last updated at ' + formatDate(updatedTime) : ''}` }}
     </p>
+    <div v-if="tags && tags.length > 0" class="text-sm">
+      <tag-link v-for="tag in tags" :key="tag" :name="tag" />
+    </div>
   </div>
   <article ref="content">
     <!-- See vite.config.ts -->
