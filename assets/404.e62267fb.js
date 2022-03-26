@@ -1,1 +1,0 @@
-import{_ as r}from"./index.13683274.js";import{o as a,h as n,w as c,f as s}from"./vendor.0a693563.js";const _=s("p",null,"Nice to meet you tho!",-1),u={setup(p,{expose:e}){const t={title:404,meta:[{property:"og:title",content:404}]};return e({frontmatter:t}),(m,f)=>{const o=r;return a(),n(o,{frontmatter:t},{default:c(()=>[_]),_:1})}}};export{u as default};
