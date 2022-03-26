@@ -1,7 +1,10 @@
 ---
 title: Git Flow
-tags: [ git, translation ]
+tags:
+  - git
+  - translation
 description: 一个经典的 Git 分支模型
+publishedTime: '2022-03-26 15:20'
 ---
 
 > 翻译自 [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)，有删改。
