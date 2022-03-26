@@ -6,8 +6,8 @@
     <div v-if="tags && tags.length > 0" class="text-sm">
       <tag-link v-for="tag in tags" :key="tag" :name="tag" />
     </div>
-    <p v-if="createdTime" class="opacity-50 !-mt-2">
-      {{ `Created at ${formatDate(createdTime)}${updatedTime ? ', last updated at ' + formatDate(updatedTime) : ''}` }}
+    <p v-if="publishedTime" class="opacity-50 !-mt-2">
+      {{ `Published at ${formatDate(publishedTime)}${updatedTime ? ', last updated at ' + formatDate(updatedTime) : ''}` }}
     </p>
   </div>
   <article ref="content">
@@ -33,7 +33,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
-const { title, tags, createdTime, updatedTime } = props.frontmatter
+const { title, tags, publishedTime, updatedTime } = props.frontmatter
 
 // See vite.config.ts
 // 由于配置 headEnabled 不生效，故手动设置
