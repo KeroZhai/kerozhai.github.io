@@ -27,7 +27,6 @@ public class Car {
 ```java
 public class Car {
     private Engine engine; // 一般是接口类
-    private Engine engine;
 
     public Car(Engine engine) {
         this.engine = engine;
@@ -74,9 +73,10 @@ Car car = new Car(superEngine);
 * 实现了 `Serializable` 接口。
 
 > Java 名称来源于一个盛产咖啡豆的小岛（所以 Java 的图标是一杯咖啡），而 bean 直译为豆子，所以 JavaBean 其实就是咖啡豆。此外，如果查看 Java 编译后生成的 class 文件的二进制信息，可以看到前四个字节的值为“cafe babe”。
+
 ### 容器概述
 
-接口 `org.springframework.context.ApplicationContext` 代表着 Spring IoC 容器，并通过读取配置元数据来实例化、配置和组装 bean。配置元数据可以通过 XML、Java 注解或 Java 代码来提供，主要用于表示组成应用的对象以及它们之间的依赖关系。
+接口 `org.springframework.context.ApplicationContext` 代表着 Spring IoC 容器，并通过读取*配置元数据*来实例化、配置和组装 bean。配置元数据可以通过 XML、Java 注解或 Java 代码来提供，主要用于表示组成应用的对象以及它们之间的依赖关系。
 
 除了 `ApplicationContext` 接口以外，Spring 也附带了几个它的实现类。在单应用中，常见的做法是创建一个 `ClassPathXmlApplicationContext` 或者 `FileSystemXmlApplicationContext`。虽然 XML 一直是定义配置元数据的传统格式，但我们可以通过提供少量 XML 配置来以声明方式支持额外的元数据格式，即使用 Java 注解或者代码。
 
@@ -88,7 +88,65 @@ Car car = new Car(superEngine);
 
 #### 配置元数据
 
-如前所述，配置元数据传统上以简单直观的 XML 格式提供，本章大部分内容都使用这种格式来传达 Spring IoC 容器的关键概念和特性。
+如前所述，配置元数据传统上以简单直观的 XML 格式提供，但如今已经很少使用了，因此我们不会详细介绍它。
+
+##### 基于 XML 的配置元数据
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.foo.Car">
+        <!-- collaborators and configuration for this bean go here -->
+        <property name="engine" autowire="byType">
+    </bean>
+
+    <bean id="superEngine" class="com.foo.SuperEngine">
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions go here -->
+</beans>
+```
+
+##### 基于注解的配置元数据
+
+```java
+package com.foo;
+
+@Component
+public class Car {
+    // ...
+}
+```
+
+```java
+@Configuration
+@ComponentScan(basePackages = "com.foo")
+public class AppConfiguration {
+}
+```
+
+##### 基于 Java 的配置元数据
+
+```java
+package com.foo;
+
+public class Car {
+    // ...
+}
+
+
+```
+
+
+
+
+
+本章大部分内容都使用这种格式来传达 Spring IoC 容器的关键概念和特性。
 
 Spring 配置由至少一个需要由容器管理的 bean 定义。基于 XML 的配置元数据将这些 bean 配置为顶级 `<beans/>` 元素内的 `<bean/>` 元素，而 Java 配置通常通过配置类（标注了 `@Configuration` 的类）中标注了 `@Bean` 注解的方法来配置。
 
